@@ -1,0 +1,22 @@
+Ordem das pastas
+seguindo o padrão N-layers
+
+src - código fonte
+  - entities - object mappings 
+  - factories - instance generators - padrão para criar instancias
+  - repositories - data access - acessar dados
+  - routes - endpoint mappings - rotas da api para serem acessadas
+  - services - communication between routes and repositories layers (business logic) - 
+              responsável por organizar as regras de negócio e realizar a comunicação
+              entre as rotas e os repos
+  - util - shared code - códigos a serem reutilizados em locais da aplicação 
+  - handler - communication between routes and server - faz o "atalho" da comunicação
+  - index.js - server instance
+
+
+tests -> all automated test suites - testes todos automatizados
+  - integration tests - testing on the user point of view its also E2E 
+    because there is no app consuming it
+  
+  - unit - all tests tha must run without any external connections such as 
+    databases, external API's and our case, the fileSystem
