@@ -13,13 +13,12 @@ test('Hero integration test suite', async t => {
 
   await t.test('it should create a hero', async t => {
     const data = {
-      id: 10,
       name: 'Batman',
       age: 50,
       power: 'rich',
     };
 
-    const request = fetch(testServerAddress, {
+    const request = await fetch(testServerAddress, {
       method: 'POST',
       body: JSON.stringify(data),
     });
