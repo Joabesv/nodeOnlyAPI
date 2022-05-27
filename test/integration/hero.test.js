@@ -29,6 +29,8 @@ test('Hero integration test suite', async t => {
       request.headers.get('content-type'),
       'application/json'
     );
+
+    assert.strictEqual(request.status, 201);
   });
 
   await promisify(server.close.bind(server))();
