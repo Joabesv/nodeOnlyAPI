@@ -4,5 +4,11 @@
     "name": "Batman",
     "age": 50,
     "power": "rich"
+  },
+  {
+    "id": "2dd13ed2-182f-4192-b2ac-be9d087afd04",
+    "name": "Batman",
+    "age": 50,
+    "power": "rich"
   }
 ]
