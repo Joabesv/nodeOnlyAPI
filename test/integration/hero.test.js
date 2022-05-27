@@ -31,6 +31,17 @@ test('Hero integration test suite', async t => {
     );
 
     assert.strictEqual(request.status, 201);
+
+    const result = await request.json();
+    assert.deepStrictEqual(
+      result.success,
+      'User created with success',
+      'it should return a valid text message'
+    );
+
+    // quando o dado for criado, quero receber o id da api
+    // testo se é maior que 30, por causa da especificação do UUID
+    assert.ok(result.id.length > 30, 'it should be a valid uuid');
   });
 
   await promisify(server.close.bind(server))();
