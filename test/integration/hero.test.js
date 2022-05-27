@@ -19,7 +19,16 @@ test('Hero integration test suite', async t => {
       power: 'rich',
     };
 
-    fetch();
+    const request = fetch(testServerAddress, {
+      method: 'POST',
+      body: JSON.stringify(data),
+    });
+
+    // confirmanod o valor do default Header
+    assert.deepStrictEqual(
+      request.headers.get('content-type'),
+      'application/json'
+    );
   });
 
   await promisify(server.close.bind(server))();
