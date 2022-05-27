@@ -6,7 +6,7 @@ import { routes } from '../routes/hero.routes.js';
 import { DEFAULT_HEADER } from '../util/index.js';
 
 const currentDir = dirname(fileURLToPath(import.meta.url));
-const filePath = join(currentDir, './database', 'data.json');
+const filePath = join(currentDir, '../database', 'data.json');
 const heroService = generateInstance({ filePath });
 
 // vai me retornar um json

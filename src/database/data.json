@@ -1,1 +1,8 @@
-[]
+[
+  {
+    "id": "bc0226d8-a7e1-4d52-b8f2-d512f7f5bbcb",
+    "name": "Batman",
+    "age": 50,
+    "power": "rich"
+  }
+]
