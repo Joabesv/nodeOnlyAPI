@@ -1,7 +1,13 @@
 import { parse } from 'node:url';
+import { routes } from '../routes/hero.routes.js';
 import { DEFAULT_HEADER } from '../util/index.js';
 
+// vai me retornar un json
+const heroRoutes = routes({
+  heroService: {},
+});
 const allRoutes = {
+  ...heroRoutes,
   //404 routes
   default: (request, response) => {
     response.writeHead(404, DEFAULT_HEADER);

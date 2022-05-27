@@ -35,7 +35,7 @@ test('Hero integration test suite', async t => {
     const result = await request.json();
     assert.deepStrictEqual(
       result.success,
-      'User created with success',
+      'User created with success!!',
       'it should return a valid text message'
     );
 
