@@ -11,6 +11,10 @@ class HeroService {
   create(data) {
     return this.heroRepository.create(data);
   }
+
+  edit(data) {
+    return this.heroRepository.edit(data);
+  }
 }
 
 export { HeroService };

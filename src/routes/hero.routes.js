@@ -24,6 +24,22 @@ const routes = ({ heroService }) => ({
     );
     return response.end();
   },
+
+  '/heroes:patch': async (request, response) => {
+    const data = await once(request, 'data');
+    const item = JSON.parse(data);
+
+    const id = await heroService.edit(item);
+
+    response.writeHead(202, DEFAULT_HEADER);
+    response.write(
+      JSON.stringify({
+        success: `Hero edited with success`,
+        id,
+      })
+    );
+    return response.end();
+  },
 });
 
 export { routes };

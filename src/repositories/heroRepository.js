@@ -23,20 +23,37 @@ class HeroRepository {
 
     return data.id;
   }
+
+  async edit(data) {
+    const currentFile = await this.#currentFileContent();
+    const heroIndex = await currentFile.findIndex(hero => hero.id === data.id);
+
+    if (data.name) currentFile[heroIndex].name = data.name;
+
+    if (data.age) currentFile[heroIndex].age = data.age;
+
+    if (data.power) currentFile[heroIndex].power = data.power;
+
+    await writeFile(this.file, JSON.stringify(currentFile));
+
+    return data.id;
+  }
 }
+
 /*
 const heroRepository = new HeroRepository({
   file: './database/data.json',
 });
 
-console.log(
-  await heroRepository.create({
-    id: 2,
-    name: 'Joabesv',
-  })
-);
+// console.log(
+//   await heroRepository.create({
+//     id: 2,
+//     name: 'Joabesv',
+//   })
+// );
 
-console.log(await heroRepository.find());
+// console.log(await heroRepository.find());
+console.log(await heroRepository.edit(file));
 */
 
 export { HeroRepository };
