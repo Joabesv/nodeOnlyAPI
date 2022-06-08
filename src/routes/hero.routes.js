@@ -40,6 +40,22 @@ const routes = ({ heroService }) => ({
     );
     return response.end();
   },
+
+  '/heroes:delete': async (request, response) => {
+    const data = await once(request, 'data');
+    const item = JSON.parse(data);
+
+    const result = await heroService.delete(item);
+
+    response.writeHead(200, DEFAULT_HEADER);
+    response.write(
+      JSON.stringify({
+        success: result.message,
+      })
+    );
+
+    return response.end();
+  },
 });
 
 export { routes };

@@ -15,6 +15,10 @@ class HeroService {
   edit(data) {
     return this.heroRepository.edit(data);
   }
+
+  delete(data) {
+    return this.heroRepository.delete(data);
+  }
 }
 
 export { HeroService };

@@ -38,6 +38,16 @@ class HeroRepository {
 
     return data.id;
   }
+
+  async delete(data) {
+    const currentFile = await this.#currentFileContent();
+    const heroIndex = await currentFile.findIndex(hero => hero.id === data.id);
+
+    currentFile.splice(heroIndex, 1);
+
+    await writeFile(this.file, JSON.stringify(currentFile));
+    return { message: 'Hero deleted with success' };
+  }
 }
 
 /*
